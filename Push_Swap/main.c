@@ -6,24 +6,25 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:43:29 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/27 09:47:21 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/27 12:21:04 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_stack(t_main *stacks)
+void	print_stack(t_stack *a, t_stack *b)
 {
 	int	i;
 
 	i = 0;
-	ft_printf("Stack A ::: B\n");
-	while (i < stacks->len)
+	ft_printf(":::Printing:::\nA\tB\n----------\n");
+	while (i < a->len)
 	{
-		if (stacks->a[i])
-			ft_printf("%5d\n", stacks->a[i]);
-		else
-			ft_printf("    ");
+		if (i < a->last)
+			ft_printf("%d\t", a->stk[i]);
+		if (i <= b->last)
+			ft_printf("%d", b->stk[i]);
+		ft_printf("\n");
 		i++;
 	}
 }
@@ -55,24 +56,37 @@ void	read_stack(char **argv, int **stack, int len)
 	}
 }
 
+void	sort(t_stack *a, t_stack *b)
+{
+	ft_push(&b, &a);
+	print_stack(a, b);
+
+	ft_push(&b, &a);
+	print_stack(a, b);
+
+	ft_push(&b, &a);
+	print_stack(a, b);
+}
+
 int		main(int argc, char **argv)
 {
-	t_main	stacks;
+	t_stack	a;
+	t_stack	b;
 
 	if (argc == 1)
 		ft_puterror("Error");
-	if (!(stacks.a = (int *)malloc(sizeof(int) * argc)))
+	if (!(a.stk = (int *)malloc(sizeof(int) * argc)))
 		ft_puterror("Failed to Allocate Memory");
-	if (!(stacks.b = (int *)malloc(sizeof(int) * argc)))
+	if (!(b.stk = (int *)malloc(sizeof(int) * argc)))
 		ft_puterror("Failed to Allocate Memory");
-	stacks.len = argc - 1;
-	read_stack(argv, &stacks.a, argc - 1);
-	print_stack(&stacks);
-
-	ft_swap(stacks.a, stacks.len);
-	print_stack(&stacks);
-
-	free(stacks.a);
-	free(stacks.b);
+	a.len = argc - 1;
+	a.last = argc - 1;
+	b.len = argc - 1;
+	b.last = -1;
+	read_stack(argv, &a.stk, argc - 1);
+	print_stack(&a, &b);
+	sort(&a, &b);
+	free(a.stk);
+	free(b.stk);
 	return (0);
 }

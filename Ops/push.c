@@ -6,8 +6,23 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 09:55:40 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/27 09:56:01 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/27 12:20:37 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_push(t_stack **to, t_stack **from)
+{
+	int	i;
+
+	if ((*from)->last == -1)
+		return ;
+	i = -1;
+	(*to)->last += 1;
+	(*to)->stk[0] = (*from)->stk[0];
+	(*from)->last -= 1;
+	i = -1;
+	while (++i < (*from)->last)
+		(*from)->stk[i] = (*from)->stk[i + 1];
+}
