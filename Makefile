@@ -6,7 +6,7 @@
 #    By: oexall <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/27 07:18:51 by oexall            #+#    #+#              #
-#    Updated: 2016/06/27 09:55:30 by oexall           ###   ########.fr        #
+#    Updated: 2016/06/27 12:02:18 by ghavenga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ check:
 	@clear
 	@echo "Compiling $(CHCK)"
 	@$(CC) $(CHCK) $(CFLAGS) $(CR_SRC) $(OPS_SRC) $(O_SRC) $(LIBFT)
-	@echo "Done Compiling $(NAME)"
+	@echo "Done Compiling $(CHCK)"
 
 clean:
 	@rm $(NAME)
