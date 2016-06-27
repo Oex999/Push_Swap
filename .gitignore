@@ -1,3 +1,7 @@
-.*.swap
-._.*
 *.o
+._.*
+author
+*.dSYM
+*.c.sw*
+*.h.sw*
+
