@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:43:29 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/28 07:39:49 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/28 09:38:48 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void	sort(t_stack *a, t_stack *b)
 	print_stack(&a, &b);
 
 	ft_rotaterr(&a, &b);
+	print_stack(&a, &b);
+	
+	ft_rev_rotaterr(&a, &b);
 	print_stack(&a, &b);
 }
 
