@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:46:45 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/27 12:07:49 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/28 08:17:59 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ void				ft_puterror(char *str);
 void				ft_swap(t_stack **stk);
 void				ft_swapss(t_stack **a, t_stack **b);
 void				ft_push(t_stack **to, t_stack **from);
+void				ft_rotate(t_stack **stk, int last);
+void				ft_rotaterr(t_stack **a, t_stack **b);
 
 #endif

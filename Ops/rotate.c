@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/06/27 09:36:27 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/28 07:13:37 by oexall           ###   ########.fr       */
+/*   Created: 2016/06/28 07:20:50 by oexall            #+#    #+#             */
+/*   Updated: 2016/06/28 08:22:37 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_swap(t_stack **stk)
+void	ft_rotate(t_stack **stk, int last)
 {
+	int	i;
 	int	tmp;
 
-	if ((*stk)->last == -1 || (*stk)->last == 0)
+	if ((*stk)->last <= 0)
 		return ;
 	tmp = (*stk)->stk[0];
-	(*stk)->stk[0] = (*stk)->stk[1];
-	(*stk)->stk[1] = tmp;
+	i = -1;
+	while (i++ < last)
+		(*stk)->stk[i] = (*stk)->stk[i + 1];
+	(*stk)->stk[i - 1] = tmp;
 }
 
-void	ft_swapss(t_stack **a, t_stack **b)
+void	ft_rotaterr(t_stack **a, t_stack **b)
 {
-	ft_swap(a);
-	ft_swap(b);
+	ft_rotate(a, (*a)->last - 1);
+	ft_rotate(b, (*b)->last);
 }
