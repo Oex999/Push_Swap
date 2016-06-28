@@ -6,7 +6,7 @@
 #    By: oexall <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/27 07:18:51 by oexall            #+#    #+#              #
-#    Updated: 2016/06/28 07:21:10 by oexall           ###   ########.fr        #
+#    Updated: 2016/06/28 09:24:00 by oexall           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ LIBFT= -L ./libft/ -lft
 
 OPS_SRC= ./Ops/swap.c \
 		 ./Ops/push.c \
-		 ./Ops/rotate.c
+		 ./Ops/rotate.c \
+		 ./Ops/rev_rotate.c
 PS_SRC= ./Push_Swap/main.c
 CR_SRC= ./Checker/main.c
 O_SRC= ./error.c
