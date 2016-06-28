@@ -1,9 +1,9 @@
 *.o
 ._.*
-
 author
 *.dSYM
 *.c.sw*
-
 *.h.sw*
-
+.DS_Store
+.*.swo
+.*.swp

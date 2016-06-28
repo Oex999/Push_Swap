@@ -6,24 +6,28 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:43:29 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/27 12:21:04 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/28 07:39:49 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	print_stack(t_stack *a, t_stack *b)
+void	print_stack(t_stack **a, t_stack **b)
 {
 	int	i;
 
 	i = 0;
 	ft_printf(":::Printing:::\nA\tB\n----------\n");
-	while (i < a->len)
+	while (i < (*a)->len)
 	{
-		if (i < a->last)
-			ft_printf("%d\t", a->stk[i]);
-		if (i <= b->last)
-			ft_printf("%d", b->stk[i]);
+		if (i < (*a)->last)
+			ft_printf("%d\t", (*a)->stk[i]);
+		else
+			ft_printf("\t");
+		if (i <= (*b)->last)
+			ft_printf("%d", (*b)->stk[i]);
+		else
+			ft_printf("");
 		ft_printf("\n");
 		i++;
 	}
@@ -58,14 +62,18 @@ void	read_stack(char **argv, int **stack, int len)
 
 void	sort(t_stack *a, t_stack *b)
 {
+	print_stack(&a, &b);
 	ft_push(&b, &a);
-	print_stack(a, b);
+	print_stack(&a, &b);
 
 	ft_push(&b, &a);
-	print_stack(a, b);
+	print_stack(&a, &b);
 
 	ft_push(&b, &a);
-	print_stack(a, b);
+	print_stack(&a, &b);
+
+	ft_rotaterr(&a, &b);
+	print_stack(&a, &b);
 }
 
 int		main(int argc, char **argv)
@@ -84,7 +92,6 @@ int		main(int argc, char **argv)
 	b.len = argc - 1;
 	b.last = -1;
 	read_stack(argv, &a.stk, argc - 1);
-	print_stack(&a, &b);
 	sort(&a, &b);
 	free(a.stk);
 	free(b.stk);
