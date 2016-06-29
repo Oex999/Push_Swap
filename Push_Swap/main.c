@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:43:29 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/28 09:38:48 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/29 14:29:11 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,27 @@ int		is_valid(char *str)
 	return (0);
 }
 
+int		is_duplicate(int num, int **stack, int len)
+{
+	int	i;
+	int	*stk;
+
+	i = 0;
+	stk = *stack;
+	while (i < len)
+	{
+		if (stk[i] == num)
+			return (-1);
+		i++;
+	}
+	return (0);
+}
+
 void	read_stack(char **argv, int **stack, int len)
 {
 	int	*a;
 	int	i;
+	int	tmp;
 
 	i = 0;
 	a = *stack;
@@ -55,28 +72,14 @@ void	read_stack(char **argv, int **stack, int len)
 	{
 		if (is_valid(argv[i + 1]) == -1)
 			ft_puterror("Error");
-		a[i] = ft_atoi(argv[i + 1]);
+		tmp = ft_atoi(argv[i + 1]);
+		if (tmp < INT_MIN || tmp > INT_MAX)
+			ft_puterror("Error");
+		if (is_duplicate(tmp, stack, i) == -1)
+			ft_puterror("Error");
+		a[i] = tmp;
 		i++;
 	}
-}
-
-void	sort(t_stack *a, t_stack *b)
-{
-	print_stack(&a, &b);
-	ft_push(&b, &a);
-	print_stack(&a, &b);
-
-	ft_push(&b, &a);
-	print_stack(&a, &b);
-
-	ft_push(&b, &a);
-	print_stack(&a, &b);
-
-	ft_rotaterr(&a, &b);
-	print_stack(&a, &b);
-	
-	ft_rev_rotaterr(&a, &b);
-	print_stack(&a, &b);
 }
 
 int		main(int argc, char **argv)
@@ -95,7 +98,7 @@ int		main(int argc, char **argv)
 	b.len = argc - 1;
 	b.last = -1;
 	read_stack(argv, &a.stk, argc - 1);
-	sort(&a, &b);
+	sort_ascending(&a, &b);
 	free(a.stk);
 	free(b.stk);
 	return (0);
