@@ -6,11 +6,29 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/28 13:16:15 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/29 14:28:38 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/29 15:15:32 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_gswap(char *s_op, t_stack *stk)
+{
+	ft_swap(&stk);
+	ft_putstr(s_op);
+}
+
+void	ft_gpush(t_stack *to, t_stack *from, char *s_op)
+{
+	ft_push(&to, &from);
+	ft_putstr(s_op);
+}
+
+void	ft_grot(t_stack *stk, char *s_op, int last)
+{
+	ft_rotate(&stk, last);
+	ft_putstr(s_op);
+}
 
 void	sort(t_stack *a, t_stack *b)
 {
@@ -18,37 +36,23 @@ void	sort(t_stack *a, t_stack *b)
 		ft_puterror("Already In Order");
 	if (a->last == 0)
 		return ;
-	print_stack(&a, &b); //Remove
 	while (is_ascending(&a) != 0)
 	{
-		print_stack(&a, &b); //Remove
 		if (a->stk[0] > a->stk[1])
 		{
-			ft_swap(&a);
-			ft_push(&b, &a);
-			ft_putstr("sa\npb\n");
+			ft_gswap("sa\n", a);
+			ft_gpush(b, a, "pb\n");
 		}
 		else
-		{
-			ft_push(&b, &a);
-			ft_putstr("pb\n");
-		}
+			ft_gpush(b, a, "pb\n");
 		if (b->stk[0] < b->stk[b->last])
-		{
-			ft_rotate(&b, b->last);
-			ft_putstr("rb\n");
-		}
+			ft_grot(b, "rb", b->last);
 	}
 	while (b->last > -1)
 	{
-		ft_push(&a, &b);
-		ft_putstr("pa\n");
+		ft_gpush(a, b, "pa\n");
 		if (a->stk[0] > a->stk[1])
-		{
-			ft_swap(&a);
-			ft_putstr("sa\n");
-		}
-		print_stack(&a, &b); //Remove
+			ft_gswap("sa\n", a);
 	}
 }
 
