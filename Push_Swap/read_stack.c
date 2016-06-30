@@ -6,11 +6,17 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/30 08:10:44 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 11:27:08 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 11:36:14 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void	ft_puterror(char *str)
+{
+	ft_printf("%s\n", str);
+	exit(EXIT_FAILURE);
+}
 
 void	read_stack_args(char **argv, int **stack, int len)
 {
