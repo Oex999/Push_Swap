@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 15:06:11 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 15:28:40 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,9 @@
 
 int				checkstack(t_stack *stack)
 {
-	int			result;
-
-	if ((result = is_ascending(&stack)) == -1)
+	if ((is_ascending(&stack)) == -1)
 		return (-1);
-	else if ((result = is_ascending(&stack)) == 0)
-		return (0);
-	else if (stack->last == -1)
-		return (2);	
-	return (5);
+	return (0);
 }
 
 void			execute(char *line, t_stack *a, t_stack *b)
@@ -49,8 +43,8 @@ void			execute(char *line, t_stack *a, t_stack *b)
 		ft_rev_rotate(&b, b->last);
 	else if (ft_strncmp(line, "rrr", 3) == 0)
 		ft_rev_rotaterr(&a, &b);
-	else
-		ft_puterror("Error");
+	//else
+	//	ft_puterror("Error1");
 	print_stack(&a, &b);
 }
 
@@ -66,21 +60,21 @@ int				main(int argc, char **argv)
 	t_stack		a;
 	t_stack		b;
 	char		*line;
-	
+
 	if (argc > 1 && argv)
 	{
 		read_stack(argc, argv, &a, &b);
-		while (0 != get_next_line(1, &line))
+		while (0 != get_next_line(0, &line))
 		{
-			ft_printf("%s\n", line);
+			//ft_printf("%s\n", line);
 			execute(line, &a, &b);
 		}
-	if ((checkstack(&a) == 1 && (checkstack(&b) == 2)))
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
-	free(a.stk);
-	free(b.stk);
+		if ((checkstack(&a) == 0 && (b.last == -1)))
+			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
+		free(a.stk);
+		free(b.stk);
 	}
 	else
 	{
