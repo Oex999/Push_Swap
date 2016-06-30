@@ -6,7 +6,7 @@
 #    By: oexall <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/27 07:18:51 by oexall            #+#    #+#              #
-#    Updated: 2016/06/30 11:34:57 by oexall           ###   ########.fr        #
+#    Updated: 2016/06/30 11:41:25 by oexall           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ PS_SRC= ./Push_Swap/main.c \
 		./Push_Swap/read_stack.c
 CR_SRC= ./Checker/main.c \
 		./Checker/read_stack.c \
-O_SRC= ./error.c
+		./Checker/utils.c
 
 all: $(NAME)
 
@@ -48,13 +48,13 @@ $(NAME):
 push:
 	@clear
 	@echo "Compiling $(NAME)"
-	@$(CC) $(NAME) $(CFLAGS) $(PS_SRC) $(OPS_SRC) $(O_SRC) $(LIBFT)
+	@$(CC) $(NAME) $(CFLAGS) $(PS_SRC) $(OPS_SRC) $(LIBFT)
 	@echo "Done Compiling $(NAME)"
 
 check:
 	@clear
 	@echo "Compiling $(CHCK)"
-	@$(CC) $(CHCK) $(CFLAGS) $(CR_SRC) $(OPS_SRC) $(O_SRC) $(LIBFT)
+	@$(CC) $(CHCK) $(CFLAGS) $(CR_SRC) $(OPS_SRC) $(LIBFT)
 	@echo "Done Compiling $(CHCK)"
 
 clean:
