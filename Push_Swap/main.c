@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:43:29 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/29 14:29:11 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 08:28:23 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		is_duplicate(int num, int **stack, int len)
 	return (0);
 }
 
-void	read_stack(char **argv, int **stack, int len)
+/*void	read_stack(char **argv, int **stack, int len)
 {
 	int	*a;
 	int	i;
@@ -80,7 +80,7 @@ void	read_stack(char **argv, int **stack, int len)
 		a[i] = tmp;
 		i++;
 	}
-}
+}*/
 
 int		main(int argc, char **argv)
 {
@@ -97,7 +97,10 @@ int		main(int argc, char **argv)
 	a.last = argc - 1;
 	b.len = argc - 1;
 	b.last = -1;
-	read_stack(argv, &a.stk, argc - 1);
+	if (argc - 1 > 1)
+		read_stack_args(argv, &a.stk, argc - 1);
+	else
+		read_stack_string(argv[1], &a.stk);
 	sort_ascending(&a, &b);
 	free(a.stk);
 	free(b.stk);

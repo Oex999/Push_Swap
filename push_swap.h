@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:46:45 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/29 14:30:15 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 08:29:12 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,13 @@ typedef struct		s_stack
 	int				*stk;
 }					t_stack;
 
+void				read_stack_args(char **argv, int **stack, int len);
+void				read_stack_string(char *line, int **stack);
+
 void				ft_puterror(char *str);
 void				print_stack(t_stack **a, t_stack **b);
+int					is_valid(char *str);
+int					is_duplicate(int num, int **stack, int len);
 
 void				ft_swap(t_stack **stk);
 void				ft_swapss(t_stack **a, t_stack **b);

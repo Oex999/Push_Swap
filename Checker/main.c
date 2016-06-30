@@ -6,11 +6,11 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/29 14:52:50 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 07:14:59 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "../push_swap.h"
 
 int				checkstack(int *stack, int ncount)
 {
@@ -47,8 +47,8 @@ int				main(int argc, char **argv)
 			stack.a[res] = argv[res + 1];
 		if (checkstack(stack.a, argv) == 3)
 			ft_printf("Invalid Arguements\n");
-		while (get_next_line(1, &line));
-		execute(&line, &stack);
+		while (get_next_line(1, &line))
+			execute(&line, &stack);
 		res = checkstack(stack.a);
 		res = checkstack(stack.b);
 	}
