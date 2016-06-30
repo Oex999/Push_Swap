@@ -6,11 +6,32 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/30 11:39:40 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 11:42:50 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 11:58:06 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+void    print_stack(t_stack **a, t_stack **b)
+{
+		int i;
+
+		i = 0;
+		ft_printf(":::Printing:::\nA\tB\n----------\n");
+		while (i < (*a)->len)
+		{
+			if (i < (*a)->last)
+				ft_printf("%d\t", (*a)->stk[i]);
+			else
+				ft_printf("\t");
+			if (i <= (*b)->last)
+				ft_printf("%d", (*b)->stk[i]);
+			else
+				ft_printf("");
+			ft_printf("\n");
+			i++;
+		}
+}
 
 int		is_valid(char *str)
 {
