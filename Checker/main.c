@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 08:36:53 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 11:21:13 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void			execute(char *line, t_stack *a, t_stack *b)
 		ft_rev_rotate(&b, b->last);
 	else if (ft_strcmp(line, "rrr") == 0)
 		ft_rev_rotaterr(&a, &b);
+	else
+		ft_puterror("Error");
 }
 
 void			init_stack(t_stack *stack, int ncount)
@@ -62,51 +64,51 @@ int				main(int argc, char **argv)
 {
 	t_stack		a;
 	t_stack		b;
-	int			ncount;
+	//int			ncount;
 	char		*line;
-	int			k;
-	int			i;
+	//int			k;
+	//int			i;
 	
-	i = 0;
-	k = 0;
+	//i = 0;
 	if (argc > 1 && argv)
 	{
-		ncount = argc - 1;
-<<<<<<< HEAD
-		stack.a = malloc(sizeof(int) * ncount);
-		stack.b = malloc(sizeof(int) * ncount);
-		while (++res <= ncount)
-			stack.a[res] = argv[res + 1];
-		if (checkstack(stack.a, argv) == 3)
-			ft_printf("Invalid Arguements\n");
-		while (get_next_line(1, &line))
-			execute(&line, &stack);
-		res = checkstack(stack.a);
-		res = checkstack(stack.b);
-	}
-	if ((checkstack(stack.a, ncount) == 1 && (checkstack(stack.b, ncount) == 2)
-=======
+/*		ncount = argc - 1;
+		ft_printf("OK7\n");
 		while (++i <= ncount + 1)
 		{
-			k = 0;
-			while (++k <= ncount + 1)
+			ft_printf("argv[i %i] = %s\n", i, argv[i]);
+			k = i;
+			while (++k <= ncount)
+			{
+				ft_printf("argv[k %i] = %s\n", k, argv[k]);
 				if (ATOI(argv[i]) == ATOI(argv[k]) || ATOI(argv[i]) > INT_MAX)
 					ft_puterror("Error");
-		}
-		init_stack(&a, ncount);
-		init_stack(&b, ncount);
-		while (++i <= ncount)
-			a.stk[i] = ATOI(argv[i + 1]);
-		a.last = ncount - 1;
-		while (get_next_line(1, &line))
+			}
+		}*/
+		ft_printf("OK1\n");
+		//init_stack(&a, ncount);
+		ft_printf("OK2\n");
+		//init_stack(&b, ncount);
+		ft_printf("OK3\n");
+		read_stack(argc, argv, &a, &b);
+		/*while (++i <= ncount)
+			a.stk[i] = ATOI(argv[i + 1]);*/
+		ft_printf("OK4\n");
+		//a.last = ncount - 1;
+		ft_printf("OK5\n");
+		while (0 != get_next_line(1, &line))
 			execute(line, &a, &b);
+		ft_printf("OK6\n");
 	if ((checkstack(&a) == 1 && (checkstack(&b) == 2)))
->>>>>>> 825c9847b9ced58904169debc953362d7e716626
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
 	}
 	else
+	{
+		free(a.stk);
+		free(b.stk);
 		ft_printf("Error\n");
+	}
 	return (0);
 }
