@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 11:21:13 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 11:49:04 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int				checkstack(t_stack *stack)
 
 void			execute(char *line, t_stack *a, t_stack *b)
 {
+		ft_printf("OK1\n");
 	if (ft_strcmp(line, "sa") == 0)
 		ft_swap(&a);
 	else if (ft_strcmp(line, "sb") == 0)
