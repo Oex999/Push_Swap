@@ -6,7 +6,7 @@
 #    By: oexall <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/27 07:18:51 by oexall            #+#    #+#              #
-#    Updated: 2016/06/30 11:41:25 by oexall           ###   ########.fr        #
+#    Updated: 2016/06/30 15:46:21 by ghavenga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -72,4 +72,4 @@ me:
 	@echo ${LOGNAME} > author
 
 norm:
-	norminette $(OPS_SRC) $(PS_SRC) $(CR_SRC)
+	norminette $(OPS_SRC) $(PS_SRC) $(CR_SRC) push_swap.h error.c

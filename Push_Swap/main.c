@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:43:29 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 11:21:26 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 15:44:22 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int		is_duplicate(int num, int **stack, int len)
 	}
 	return (0);
 }
-
 
 int		main(int argc, char **argv)
 {

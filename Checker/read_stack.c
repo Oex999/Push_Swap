@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/30 08:10:44 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 11:36:14 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 15:42:15 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	read_stack(int argc, char **args, t_stack *a, t_stack *b)
 {
 	char	**digits;
 	int		len;
-	
+
 	if (argc - 1 > 1)
 		len = argc;
 	else
@@ -74,9 +74,9 @@ void	read_stack(int argc, char **args, t_stack *a, t_stack *b)
 		ft_puterror("Error Allocating Memory");
 	if (!(b->stk = (int *)malloc(sizeof(int) * len)))
 		ft_puterror("Error Allocating Memory");
-	a->len = (argc - 1 > 1) ? len - 1: len;
-	a->last = (argc - 1 > 1) ? len - 1: len;
-	b->len = (argc - 1 > 1) ? len - 1: len;
+	a->len = (argc - 1 > 1) ? len - 1 : len;
+	a->last = (argc - 1 > 1) ? len - 1 : len;
+	b->len = (argc - 1 > 1) ? len - 1 : len;
 	b->last = -1;
 	if (argc - 1 > 1)
 		read_stack_args(args, &a->stk, len - 1);

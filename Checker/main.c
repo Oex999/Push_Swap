@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 15:28:40 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 15:42:55 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void			execute(char *line, t_stack *a, t_stack *b)
 		ft_rev_rotate(&b, b->last);
 	else if (ft_strncmp(line, "rrr", 3) == 0)
 		ft_rev_rotaterr(&a, &b);
-	//else
-	//	ft_puterror("Error1");
 	print_stack(&a, &b);
 }
 
@@ -65,10 +63,7 @@ int				main(int argc, char **argv)
 	{
 		read_stack(argc, argv, &a, &b);
 		while (0 != get_next_line(0, &line))
-		{
-			//ft_printf("%s\n", line);
 			execute(line, &a, &b);
-		}
 		if ((checkstack(&a) == 0 && (b.last == -1)))
 			ft_printf("OK\n");
 		else
