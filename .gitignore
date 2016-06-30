@@ -9,4 +9,4 @@ author
 .*.swp
 push_swap
 checker
-libft.a
+libft/ibft.a
