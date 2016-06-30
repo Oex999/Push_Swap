@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:46:45 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/29 15:57:28 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 08:20:03 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define INT_MIN -2147483648
 # define INT_MAX 2147483647
+# define ATOI ft_atoi
 
 typedef struct		s_stack
 {
