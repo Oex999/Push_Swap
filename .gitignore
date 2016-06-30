@@ -7,3 +7,6 @@ author
 .DS_Store
 .*.swo
 .*.swp
+push_swap
+checker
+libft.a
