@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 08:34:47 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 09:31:08 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void			execute(char *line, t_stack *a, t_stack *b)
 		ft_rev_rotate(&b, b->last);
 	else if (ft_strcmp(line, "rrr") == 0)
 		ft_rev_rotaterr(&a, &b);
+	else
+		ft_puterror("Error");
 }
 
 void			init_stack(t_stack *stack, int ncount)
@@ -68,24 +70,34 @@ int				main(int argc, char **argv)
 	int			i;
 	
 	i = 0;
-	k = 0;
 	if (argc > 1 && argv)
 	{
 		ncount = argc - 1;
+		ft_printf("OK7\n");
 		while (++i <= ncount + 1)
 		{
-			k = 0;
-			while (++k <= ncount + 1)
+			ft_printf("argv[i %i] = %s\n", i, argv[i]);
+			k = i;
+			while (++k <= ncount)
+			{
+				ft_printf("argv[k %i] = %s\n", k, argv[k]);
 				if (ATOI(argv[i]) == ATOI(argv[k]) || ATOI(argv[i]) > INT_MAX)
 					ft_puterror("Error");
+			}
 		}
+		ft_printf("OK1\n");
 		init_stack(&a, ncount);
+		ft_printf("OK2\n");
 		init_stack(&b, ncount);
+		ft_printf("OK3\n");
 		while (++i <= ncount)
 			a.stk[i] = ATOI(argv[i + 1]);
+		ft_printf("OK4\n");
 		a.last = ncount - 1;
+		ft_printf("OK5\n");
 		while (get_next_line(1, &line))
 			execute(line, &a, &b);
+		ft_printf("OK6\n");
 	if ((checkstack(&a) == 1 && (checkstack(&b) == 2)))
 		ft_printf("OK\n");
 	else
