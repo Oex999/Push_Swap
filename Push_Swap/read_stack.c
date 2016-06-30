@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/30 08:10:44 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 11:36:14 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 12:14:56 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,10 @@ void	read_stack_string(char **digits, int **stack, int len)
 		if (is_valid(digits[i]) == -1)
 			ft_puterror("Error");
 		tmp = ft_atoi(digits[i]);
+		if (tmp < INT_MIN || tmp > INT_MAX)
+			ft_puterror("Error");
+		if (is_duplicate(tmp, stack, i))
+			ft_puterror("Error");
 		(*stack)[i] = tmp;
 		i++;
 	}
@@ -76,7 +80,7 @@ void	read_stack(int argc, char **args, t_stack *a, t_stack *b)
 		ft_puterror("Error Allocating Memory");
 	a->len = (argc - 1 > 1) ? len - 1: len;
 	a->last = (argc - 1 > 1) ? len - 1: len;
-	b->len = (argc - 1 > 1) ? len - 1: len;
+	b->len = len - 1;
 	b->last = -1;
 	if (argc - 1 > 1)
 		read_stack_args(args, &a->stk, len - 1);
