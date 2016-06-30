@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:43:29 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 08:28:23 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 10:25:19 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,47 +60,13 @@ int		is_duplicate(int num, int **stack, int len)
 	return (0);
 }
 
-/*void	read_stack(char **argv, int **stack, int len)
-{
-	int	*a;
-	int	i;
-	int	tmp;
-
-	i = 0;
-	a = *stack;
-	while (i < len)
-	{
-		if (is_valid(argv[i + 1]) == -1)
-			ft_puterror("Error");
-		tmp = ft_atoi(argv[i + 1]);
-		if (tmp < INT_MIN || tmp > INT_MAX)
-			ft_puterror("Error");
-		if (is_duplicate(tmp, stack, i) == -1)
-			ft_puterror("Error");
-		a[i] = tmp;
-		i++;
-	}
-}*/
 
 int		main(int argc, char **argv)
 {
 	t_stack	a;
 	t_stack	b;
 
-	if (argc == 1)
-		ft_puterror("Error");
-	if (!(a.stk = (int *)malloc(sizeof(int) * argc)))
-		ft_puterror("Failed to Allocate Memory");
-	if (!(b.stk = (int *)malloc(sizeof(int) * argc)))
-		ft_puterror("Failed to Allocate Memory");
-	a.len = argc - 1;
-	a.last = argc - 1;
-	b.len = argc - 1;
-	b.last = -1;
-	if (argc - 1 > 1)
-		read_stack_args(argv, &a.stk, argc - 1);
-	else
-		read_stack_string(argv[1], &a.stk);
+	read_stack(argc, argv, &a, &b);
 	sort_ascending(&a, &b);
 	free(a.stk);
 	free(b.stk);
