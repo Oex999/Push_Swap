@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/28 13:16:15 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 14:27:51 by oexall           ###   ########.fr       */
+/*   Updated: 2016/06/30 15:01:32 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	sort(t_stack *a, t_stack *b)
 			ft_grot(b, "rb\n", b->last);
 		if (a->stk[0] > a->stk[b->last])
 			ft_grot(a, "ra\n", a->last - 1);
-		print_stack(&a, &b);
 	}
 	while (b->last > -1)
 	{
@@ -59,8 +58,6 @@ void	sort(t_stack *a, t_stack *b)
 
 void	sort_ascending(t_stack *a, t_stack *b)
 {
-	print_stack(&a, &b); //Remove
 	while (is_ascending(&a) != 0)
 		sort(a, b);
-	print_stack(&a, &b); //Remove
 }

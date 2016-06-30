@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 14:24:38 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 14:58:31 by oexall           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void			execute(char *line, t_stack *a, t_stack *b)
 	else if (ft_strncmp(line, "pa", 2) == 0)
 		ft_push(&a, &b);
 	else if (ft_strncmp(line, "pb", 2) == 0)
-		ft_push(&b, &b);
+		ft_push(&b, &a);
 	else if (ft_strncmp(line, "ra", 2) == 0)
 		ft_rotate(&a, a->last - 1);
 	else if (ft_strncmp(line, "rb", 2) == 0)
