@@ -6,7 +6,7 @@
 #    By: oexall <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/27 07:18:51 by oexall            #+#    #+#              #
-#    Updated: 2016/06/30 08:37:25 by oexall           ###   ########.fr        #
+#    Updated: 2016/06/30 11:28:18 by ghavenga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,8 @@ OPS_SRC= ./Ops/swap.c \
 PS_SRC= ./Push_Swap/main.c \
 		./Push_Swap/sorting.c \
 		./Push_Swap/read_stack.c
-CR_SRC= ./Checker/main.c
+CR_SRC= ./Checker/main.c \
+		./Checker/read_stack.c \
 O_SRC= ./error.c
 
 all: $(NAME)

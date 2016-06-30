@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:45:11 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 10:33:43 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/06/30 11:21:13 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,15 @@ int				main(int argc, char **argv)
 {
 	t_stack		a;
 	t_stack		b;
-	int			ncount;
+	//int			ncount;
 	char		*line;
-	int			k;
-	int			i;
+	//int			k;
+	//int			i;
 	
-	i = 0;
+	//i = 0;
 	if (argc > 1 && argv)
 	{
-		ncount = argc - 1;
+/*		ncount = argc - 1;
 		ft_printf("OK7\n");
 		while (++i <= ncount + 1)
 		{
@@ -84,18 +84,19 @@ int				main(int argc, char **argv)
 				if (ATOI(argv[i]) == ATOI(argv[k]) || ATOI(argv[i]) > INT_MAX)
 					ft_puterror("Error");
 			}
-		}
+		}*/
 		ft_printf("OK1\n");
-		init_stack(&a, ncount);
+		//init_stack(&a, ncount);
 		ft_printf("OK2\n");
-		init_stack(&b, ncount);
+		//init_stack(&b, ncount);
 		ft_printf("OK3\n");
-		while (++i <= ncount)
-			a.stk[i] = ATOI(argv[i + 1]);
+		read_stack(argc, argv, &a, &b);
+		/*while (++i <= ncount)
+			a.stk[i] = ATOI(argv[i + 1]);*/
 		ft_printf("OK4\n");
-		a.last = ncount - 1;
+		//a.last = ncount - 1;
 		ft_printf("OK5\n");
-		while (get_next_line(1, &line))
+		while (0 != get_next_line(1, &line))
 			execute(line, &a, &b);
 		ft_printf("OK6\n");
 	if ((checkstack(&a) == 1 && (checkstack(&b) == 2)))
@@ -104,6 +105,10 @@ int				main(int argc, char **argv)
 		ft_printf("KO\n");
 	}
 	else
+	{
+		free(a.stk);
+		free(b.stk);
 		ft_printf("Error\n");
+	}
 	return (0);
 }
