@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/30 11:39:40 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 15:41:14 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/07/01 08:36:06 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_stack(t_stack **a, t_stack **b)
 	int	i;
 
 	i = 0;
-	ft_printf(":::Printing:::\nA\tB\n----------\n");
+	ft_printf("\x1b[31m:::Printing:::\nA\tB\n----------\n\x1b[0m");
 	while (i < (*a)->len)
 	{
 		if (i < (*a)->last)
