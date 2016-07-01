@@ -6,7 +6,7 @@
 #    By: oexall <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/06/27 07:18:51 by oexall            #+#    #+#              #
-#    Updated: 2016/06/30 15:46:21 by ghavenga         ###   ########.fr        #
+#    Updated: 2016/07/01 09:05:45 by ghavenga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,38 +33,46 @@ all: $(NAME)
 
 $(NAME):
 	@clear
-	@echo "Compiling Libft"
+	@echo "\x1b[31mCompiling Libft\x1b[0m"
+	@echo ".	.	.	"
 	@make -C libft fclean
 	@make -C libft
-	@echo "Done Compiling Libft"
-	@echo "Compiling $(NAME)"
+	@echo "\x1b[34mDone Compiling Libft\x1b[0m"
+	@echo ".	.	.	"
+	@echo "\x1b[31mCompiling $(NAME)\x1b[0m"
+	@echo ".	.	.	"
 	@$(CC) $(NAME) $(CFLAGS) $(PS_SRC) $(OPS_SRC) $(O_SRC) $(LIBFT)
-	@echo "Done Compiling $(NAME)"
-	@echo "Compiling $(CHCK)"
+	@echo "\x1b[34mDone Compiling $(NAME)\x1b[0m"
+	@echo ".	.	.	"
+	@echo "\x1b[31mCompiling $(CHCK)\x1b[0m"
+	@echo ".	.	.	"
 	@$(CC) $(CHCK) $(CFLAGS) $(CR_SRC) $(OPS_SRC) $(O_SRC) $(LIBFT)
-	@echo "Done Compiling $(NAME)"
-	@echo "Completed All Compiling"
+	@echo "\x1b[34mDone Compiling $(NAME)\x1b[0m"
+	@echo ".	.	.	"
+	@echo "\x1b[32mCompleted All Compiling\x1b[0m"
 
 push:
 	@clear
-	@echo "Compiling $(NAME)"
+	@echo "\x1b[31mCompiling $(NAME)\x1b[0m"
+	@echo ".	.	.	"
 	@$(CC) $(NAME) $(CFLAGS) $(PS_SRC) $(OPS_SRC) $(LIBFT)
-	@echo "Done Compiling $(NAME)"
+	@echo "\x1b[32mDone Compiling $(NAME)\x1b[0m"
 
 check:
 	@clear
-	@echo "Compiling $(CHCK)"
+	@echo "\x1b[31mCompiling $(CHCK)\x1b[0m"
+	@echo ".	.	.	"
 	@$(CC) $(CHCK) $(CFLAGS) $(CR_SRC) $(OPS_SRC) $(LIBFT)
-	@echo "Done Compiling $(CHCK)"
+	@echo "\x1b[32mDone Compiling $(CHCK)\x1b[0m"
 
 clean:
 	@rm $(NAME)
 	@rm $(CHCK)
-	@echo "Completed Clean"
+	@echo "\x1b[32mCompleted Clean\x1b[0m"
 
 fclean: clean
 	@make -C libft fclean
-	@echo "Completed Full Clean"
+	@echo "\x1b[32mCompleted Full Clean\x1b[0m"
 
 re: fclean all
 
