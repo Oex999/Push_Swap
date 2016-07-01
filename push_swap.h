@@ -6,7 +6,7 @@
 /*   By: oexall <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/27 07:46:45 by oexall            #+#    #+#             */
-/*   Updated: 2016/06/30 11:53:52 by ghavenga         ###   ########.fr       */
+/*   Updated: 2016/07/01 08:07:07 by ghavenga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_stack
 	int				len;
 	int				last;
 	int				*stk;
+	int				print;
 }					t_stack;
 
 void				read_stack(int argc, char **args, t_stack *a, t_stack *b);
